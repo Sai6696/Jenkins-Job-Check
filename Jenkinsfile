@@ -2,10 +2,10 @@ def jobName = JOB_NAME
 def projectName = jobName.split('/')[0]
 def mvn_version = 'Maven' 
 def application = 'Jenkins-Job-Check'
-def muleversion = 4.2.2
+def muleversion = '4.2.2'
 def businessGroup = 'micro'
 def workerType = 'Micro'
-def workers = 1
+def workers = '1'
 node{
   stage('Checkout'){
                  echo  "Build: ${projectName} for branch ${BRANCH_NAME}"
