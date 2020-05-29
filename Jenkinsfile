@@ -2,10 +2,10 @@ def jobName = JOB_NAME
 def projectName = jobName.split('/')[0]
 def mvn_version = 'Maven' 
 def application = 'Jenkins-Job-Check'
-def muleversion = '4.2.2'
-def businessGroup = 'Speridian'
+def muleversion = 4.2.2
+def businessGroup = 'micro'
 def workerType = 'Micro'
-def workers = '1'
+def workers = 1
 node{
   stage('Checkout'){
                  echo  "Build: ${projectName} for branch ${BRANCH_NAME}"
@@ -32,7 +32,7 @@ node{
                     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
                         echo "${tool mvn_version}"
                         withCredentials([usernamePassword(credentialsId:'Anypoint', usernameVariable: 'anypoint_usr', passwordVariable: 'anypoint_psw')]){
-                        bat "mvn clean deploy -Denvironment=Sandbox -Dusername=${anypoint_usr} -Dpassword=${anypoint_psw} -Dapplication=${application}-dev -Dmuleversion=${muleversion} -DbusinessGroup=${businessGroup} -DworkerType=${workerType} -Dworkers=${workers} -DmuleDeploy "
+                        bat "mvn clean deploy -Denvironment=DEV -Dusername=${anypoint_usr} -Dpassword=${anypoint_psw} -Dapplication=${application}-dev -Dmuleversion=${muleversion} -DbusinessGroup=${businessGroup} -DworkerType=${workerType} -Dworkers=${workers} -DmuleDeploy "
                         }            
                     }
                 }
