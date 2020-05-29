@@ -1,3 +1,5 @@
+def jobName = JOB_NAME
+def projectName = jobName.split('/')[0]
 def mvn_version = 'Maven' 
 def application = 'Jenkins-Job-Check'
 def muleversion = '4.2.2'
