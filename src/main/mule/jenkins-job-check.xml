@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="9ded308f-39d4-45ac-ab3e-6225d19b6046" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="jenkins-job-checkFlow" doc:id="f16d9cf8-d167-4470-9598-4dda3797db36" >
+		<http:listener doc:name="Listener" doc:id="d1c3cb43-76b3-4749-930c-c27ba56d4078" config-ref="HTTP_Listener_config" path="/jenkins"/>
+		<set-payload value="You have a successfully hit the Mule endpoint" doc:name="Set Payload" doc:id="c0112435-118e-4b68-8487-5da3157e618d" />
+		<logger level="INFO" doc:name="Logger" doc:id="00c2ea98-29e1-4b15-b3a3-d7fe16a0a74e" message="#[payload]"/>
+	</flow>
+</mule>
