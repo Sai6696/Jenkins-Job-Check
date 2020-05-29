@@ -26,6 +26,18 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				<cloudHubDeployment>
+					   <muleVersion>${muleversion}</muleVersion> 		
+					   <username>${username}</username> 		
+					   <password>${password}</password> 		
+					   <applicationName>${application}</applicationName> 
+					   <environment>${environment}</environment>  	
+					   <businessGroup>${businessGroup}</businessGroup> 
+					   <uri>https://anypoint.mulesoft.com/</uri> 						
+					   <workerType>${workerType}</workerType> 
+					   <workers>${workers}</workers>
+					   <objectStoreV2>true</objectStoreV2>
+				</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
